@@ -1,3 +1,261 @@
+muffin (6.0.0) virginia; urgency=medium
+
+  [ Michael Webster ]
+  * Remove deprecated/removed zenity arguments.
+  * Update issue templates.
+  * bug report: Mention crashes.
+  * Update issue template with a link to open and closed issues.
+  * meta-monitor.c: Allow 75% scaling once more.
+  * Make meta_set_verbose() public.
+
+  [ Rick Calixte ]
+  * Fix a meson warning (#674)
+  * Fix meson.build deprecations up to 0.56.0 (#675)
+
+  [ Michael Webster ]
+  * keybindings: Restore window opacity keybindings.
+  * input settings: Allow disabling stylus buttons.
+
+  [ Clement Lefebvre ]
+  * Fix some incorrect gsettings schemas
+
+  [ Michael Webster ]
+  * build/packaging: Restore Wayland support
+  * wayland: Fix desktop background
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 19 Nov 2023 13:47:31 +0000
+
+muffin (5.8.1) victoria; urgency=medium
+
+  [ Michael Webster ]
+  * Escape vendor info for the monitor/layout configuration, don't call meta_monitor_spec_free() on a NULL pointer.
+  * Fix build...
+  * Disable fractional scaling by default.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 07 Jul 2023 15:25:00 +0200
+
+muffin (5.8.0) victoria; urgency=medium
+
+  [ Michael Webster ]
+  * meta-gpu-xrandr: Account for the current user text scale factor when calculating the crtc scale based on Xft.dpi.
+  * window.c: Allow meta_window_get_xwindow() to be used with introspection.
+  * Restore some global signals.
+  * window.c: Restore property notify for the tile mode property.
+  * place.c: Add missing import.
+  * display.c: Make meta_display_get_pointer_window() available to cinnamon again.
+  * clutter-text.c: Remove redundant clutter_text_set_buffer call in finalize.
+  * window.c: Fix copy/paste error in tile zone detection.
+  * github workflow: Add optional ssh session.
+  * tiling: Expose tile 'push' actions that are currently used by keybindings.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 01 Jun 2023 16:15:07 +0100
+
+muffin (5.6.3) vera; urgency=medium
+
+  [ Bobby Rong ]
+  * compositor: Fix possible crash when restarting Cinnamon (#655)
+
+  [ Michael Webster ]
+  * tiling: Skip the resize effect for tiled windows during user grabs.
+  * tiling: Remove unnecessary update_edge_constraints().
+  * Add tilix and qterminal to the new-window focus list.
+  * window activation: Detect a couple of conditions that might cause initial window focus and stacking to be wrong (mostly because of bad timestamps), and correct them.
+  * window.c: Improve the test for checking if an 'above' window may cover a new window.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 07 Jan 2023 15:54:38 +0000
+
+muffin (5.6.2) vera; urgency=medium
+
+  [ Michael Webster ]
+  * Disable automaximize by default.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 13 Dec 2022 15:15:15 +0000
+
+muffin (5.6.1) vera; urgency=medium
+
+  [ Duncan Grisby ]
+  * Bring back window placement-mode  (#649)
+
+  [ Michael Webster ]
+  * Update debian symbols file.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 29 Nov 2022 16:32:53 +0000
+
+muffin (5.6.0) vera; urgency=medium
+
+  [ Michael Webster ]
+  * Use github instead of circleci.
+  * tooltips: ensure tooltips are viewable.
+  * window-props: Change a warning to a debug message.
+  * meta-input-settings: Re-apply settings once the display is done setting up.
+
+  [ Rick Calixte ]
+  * Support multiple key bindings for 'locate-pointer-key' (#638)
+
+  [ Cobinja ]
+  * Revert renaming of the X11 atoms wm_name and gnome_wm_keybindings
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 17 Nov 2022 10:01:55 +0000
+
+muffin (5.4.7) vanessa; urgency=medium
+
+  [ Fabio Fantoni ]
+  * some fixes to debian packaging (#635)
+
+  [ Michael Webster ]
+  * keybindings: Fix workspace navigation while dragging a window with the mouse.
+  * tiling: Try to tile to the default size if a match exists, but is impossible to satisfy due to min/max size constraints.
+  * tiling: Fix tile top/maximize tests.
+  * window.c: Remove unused code.
+  * tiling: Make it easier to debug.
+  * Relocate bring-windows-to-current-workspace from org.cinnamon to org.cinnamon.muffin.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 05 Sep 2022 15:35:56 +0100
+
+muffin (5.4.6) vanessa; urgency=medium
+
+  [ JosephMcc ]
+  * prefs.c: Restore the locate pointer functionality
+
+  [ Michael Webster ]
+  * tiling: Skip the resize effect for tiled windows during user grabs.
+
+  [ Jonas Dreßler ]
+  * clutter: Bail out and warn on reentry into mapping/unmapping cycle
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 21 Aug 2022 12:11:44 +0200
+
+muffin (5.4.5) vanessa; urgency=medium
+
+  [ Fabio Fantoni ]
+  * fix a spelling error spotted by lintian
+
+  [ Michael Webster ]
+  * window.c: Allow tiling in any monitor orientataion.
+  * tiling: Disable drag-to-maximize behavior if tiling is disabled, fix drag re-tile/maximize behavior in all scenarios.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 01 Aug 2022 16:03:55 +0200
+
+muffin (5.4.4) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * workspace.c: Don't abort when requesting the index of an invalid workspace.
+  * Enable tablet support.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 25 Jul 2022 15:02:04 +0200
+
+muffin (5.4.3) vanessa; urgency=medium
+
+  [ JosephMcc ]
+  * keybindings.c: Make sure we can tile before we attempt to (#624)
+
+  [ Michael Webster ]
+  * tiling: Treat a maximized window as tiled for the purposes of determining whether or not to save the window's original position and size.
+  * tiling: When tiling at the end of a grab, use the initial position and size from when the grab began instead of it's last position before tiling.
+
+  [ Rick Calixte ]
+  * Fix .gitignore for builds
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 20 Jul 2022 07:58:37 +0200
+
+muffin (5.4.2) vanessa; urgency=medium
+
+  [ Cobinja ]
+  * Fix placement of transient children of fullscreen windows
+
+  [ Michael Webster ]
+  * frames.c: Re-implement directional maximization when double-clicking the frame edges.
+  * theme.c: Don't suppress the invisible border for non-tile/maximized non-resizable windows.
+  * Restore the 'bring windows which require attention to the current workspace' feature.
+  * window.c: Make opacity a public property.
+
+  [ Latchezar Tzvetkoff ]
+  * Fix "Center window in screen" behavior (#623)
+
+  [ Michael Webster ]
+  * frames.c: Fix calculations for determining resize zones in a tiled state.
+  * tiling: re-maximize previously-maximized windows when dragging, regardless of the tile-maximize preference.
+  * grabs: Fix restoration of window state when resize or move actions are cancelled via Escape.
+  * window.c: If maximizing a tiled window via titlebar, use the window's current, not its unconstrained position and size to pass to the constraints call.
+  * compositor: Add a MetaSizeChange value for tiling.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 15 Jul 2022 15:06:59 +0200
+
+muffin (5.4.1) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * Add ClutterTextureContent.
+  * keybindings: Don't make custom shortcuts per-window.
+  * Suppress 'invisible' borders and theme shadows for maximized and tiled windows.
+  * bell: Restore configurability.
+  * meta-input-settings.c (a11y): Don't handle togglekeys.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 20 Jun 2022 10:22:22 +0200
+
+muffin (5.4.0) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * Mutter 3.36.9-0ubuntu0.20.04.1 rebase
+  * Restore x root window backgrounds.
+  * Allow custom and mod-only keybindings.
+  * Reintroduce the bottom window group.
+
+  [ Fabio Fantoni ]
+  * debian/control: restore something removed in 8dbf865
+  * debian/tests: mutter->muffin
+
+  [ Michael Webster ]
+  * Make a couple of methods public to restore some old MetaScreen functionality we rely on.
+  * XApp themed icon names, progress.
+  * x11 backend: Don't let muffin reset the keyboard layout any time some outside force tries to change it (libgnomekbd).
+  * Freeze the window actor during unminimize.
+  * Restore 'unredirect-fullscreen-windows'
+  * Restore workspace wraparound.
+  * Restore additional titlebar actions.
+  * Restore desktop zoom mousewheel handling.
+  * Add MUFFIN_NO_SHADOWS support.
+  * Implement migration from old cinnamon-monitors.xml
+  * Enabled xrandr scaling by default.
+  * Re-implement corner/top/bottom tiling.
+  * Disable ssd shadows when tiled, even without matching windows.
+
+  [ JosephMcc ]
+  * window.c: Reduce the tile area along the top edge of the screen
+
+  [ Michael Webster ]
+  * Expose a window's tile mode. Fix tile zone calculation.
+  * Fix random crash when clicking the frame of a tiled window.
+  * Cleanup deps, build flags
+  * Work around an issue with nvidia sync waiting ref: https://gitlab.gnome.org/GNOME/mutter/-/commit/2afe3e922344a77f42afd388ad6c2ac456b314ce
+  * Manage stacking for the desklet and desktop actors in the compositor so they can be managed properly with the background.
+
+  [ Stephen Collins ]
+  * x11 input settings: Fix middle click emulation setting not working right
+
+  [ Michael Webster ]
+  * Fix a couple of build warnings
+
+  [ Fabio Fantoni ]
+  * debian: restore kfreebsd support d/rules: restore armel and armhf default_driver change
+
+  [ Michael Webster ]
+  * Don't terminate on a bad allocation.
+  * x11 backend: Don't rebuild all keybindings every time a different keyboard device is used.
+  * Use cinnamon for interface names.
+  * Remove some unused files, dependency.
+  * rules: disable dh_dwz (build warnings)
+  * Catch gtk theme name changes instead of simply relying on monitored style classes and elements changing.
+  * Move some keybindings, re-enable monitor switch, rotate.
+  * Add some api for the display applet.
+
+  [ Clement Lefebvre ]
+  * CI: Update targets
+
+  [ Michael Webster ]
+  * Add debian/ symbols file.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 10 Jun 2022 15:31:39 +0200
+
 muffin (5.2.1) una; urgency=medium
 
   [ Michael Webster ]

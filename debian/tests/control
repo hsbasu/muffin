@@ -1,0 +1,7 @@
+Tests: libmuffin-dev
+Depends: build-essential,
+         dbus,
+         libmuffin-dev,
+         xauth,
+         xvfb
+Restrictions: allow-stderr superficial
